@@ -1,0 +1,12 @@
+<div class="border-y border-gray-400 overflow-hidden">
+    <button class="cursor-pointer p-4 w-full transition-colors text-start active:bg-gray-900" (click)="toggle()">
+        {{isOpen() ? "Close Me!" : "Open Me!"}}
+    </button>
+    <div [ngClass]="{'h-auto': isOpen(),
+        'h-0': !isOpen()
+    }" class="transition-all duration-300 overflow-hidden">
+        <div class="pb-4 px-4">
+            <ng-content />
+        </div>
+    </div>
+</div>
