@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { generatePrefixedIds } from '../../../utils/utils';
 
 @Component({
   selector: 'app-collapsible-item',
@@ -8,7 +9,8 @@ import { Component, signal } from '@angular/core';
 })
 export class CollapsibleItemComponent {
   isOpen = signal(false);
-
+  panelId = generatePrefixedIds('collapsible');
+  panelButtonId = generatePrefixedIds('collapsible-button');
   toggle = () => {
     this.isOpen.update((value) => !value);
   };
